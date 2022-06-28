@@ -5,7 +5,7 @@ services:
     container_name: mainwebapp
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
-      - "ConnectionStrings:Ultra=banananas" ##- "ConnectionStrings:Ultra=Server=maindb;Database=Ultra; User Id=sa;Password=Password1!"
+      - "ConnectionStrings:Ultra=Server=maindb;Database=Ultra; User Id=sa;Password=Password1!"
       - "Logging:LogLevel:Default=Warning"
     ports:
       - "8001:80"
@@ -13,7 +13,7 @@ services:
       - ${APPDATA}/Microsoft/UserSecrets:/root/.microsoft/usersecrets:ro
       - ${APPDATA}/ASP.NET/Https:/root/.aspnet/https:ro
 
-  db:
+  maindb:
     container_name: maindb
     environment:
         SA_PASSWORD: Password1!

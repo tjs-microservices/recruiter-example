@@ -9,12 +9,10 @@ services:
     #depends_on: 
     #  - db
 
-  db:
+          
+  maindb:
     build:
         context: .
         dockerfile: WebApps/MainWebApp/Data/Dockerfile
-    volumes:
-        - mssqldata
 
-volumes:
-  mssqldata:
+
