@@ -61,7 +61,7 @@
     },
     {
       "provider": "cdnjs",
-      "library": "handlebars.js@4.7.5",
+      "library": "handlebars.js@4.7.7",
       "destination": "wwwroot/lib/handlebars.js/",
       "files": [
         "handlebars.js"

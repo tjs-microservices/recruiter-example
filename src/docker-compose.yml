@@ -1,0 +1,20 @@
+version: '3.4'
+
+services:
+  mainwebapp:
+    image: ${DOCKER_REGISTRY-}mainwebapp
+    build:
+      context: .
+      dockerfile: WebApps/MainWebApp/Dockerfile
+    #depends_on: 
+    #  - db
+
+  db:
+    build:
+        context: .
+        dockerfile: WebApps/MainWebApp/Data/Dockerfile
+    volumes:
+        - mssqldata
+
+volumes:
+  mssqldata:

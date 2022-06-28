@@ -1,0 +1,23 @@
+version: '3.4'
+
+services:
+  mainwebapp:
+    container_name: mainwebapp
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - "ConnectionStrings:Ultra=banananas" ##- "ConnectionStrings:Ultra=Server=maindb;Database=Ultra; User Id=sa;Password=Password1!"
+      - "Logging:LogLevel:Default=Warning"
+    ports:
+      - "8001:80"
+    volumes:
+      - ${APPDATA}/Microsoft/UserSecrets:/root/.microsoft/usersecrets:ro
+      - ${APPDATA}/ASP.NET/Https:/root/.aspnet/https:ro
+
+  db:
+    container_name: maindb
+    environment:
+        SA_PASSWORD: Password1!
+        ACCEPT_EULA: "Y"
+    restart: always
+    ports:
+        - "1433:1433"
